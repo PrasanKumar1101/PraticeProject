@@ -15,51 +15,62 @@
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
+import logo from "./assests/food-ordering-app-logo-with-points-fork-shapes-center_666184-195.avif";
+import HeaderComponent ,{Title}  from "./src/components/Header";
+import Body from "./src/components/Body";
+import Footer from "./src/components/Footer";
 
-const heading = React.createElement(
-  "h1",
-  { id: "title1", key: "h1" },
-  "heading1"
-);
-
-const heading2 = React.createElement(
-  "h2",
-  { id: "title2", key: "h2" },
-  "heading2"
-);
-
-const container = React.createElement(
-  "div",
-  { id: "container" },
-  [heading, heading2]
-);
- const HearderComp=()=>{
-    return <h1>hello react</h1>;
- }
-//without return
-const HeaderComponent=()=>{(
-    <div>
-        <h1>HEllo react</h1>
-        <h2>Hello fn arrow comp</h2>
-    </div>
-);
-};
-//with return
-
-const title= ()=>( 
-    <h1 id="titel" key="h2">hiee </h1>
-);
-const HeaderComponent2=()=>{
+const restranuntList=[{
+    name:"Burger King",
+    image: "https://assets.designhill.com/design-blog/wp-content/uploads/2023/07/21-today.png",
+    cusines: ["Burger","American"],
+    rating:"4.2"
+},
+    {name:"KFC",
+    image: "https://inkbotdesign.com/wp-content/uploads/2024/08/kfc-new-logo-design-2018-1024x683.webp",
+    cusines: ["Pizza","Italian"],
+    rating:"4.5"
+},
+    {name:"PizzaHut",
+    image: "https://inkbotdesign.com/wp-content/uploads/2024/08/kfc-new-logo-design-2018-1024x683.webp",
+    cusines: ["Pizza","Italian"],
+    rating:"4.7"
+},
+    {name:"Dominos",
+    image: "https://inkbotdesign.com/wp-content/uploads/2024/08/kfc-new-logo-design-2018-1024x683.webp",
+    cusines: ["Pizza","Italian"],
+    rating:"4.5"
+},
+]
+/**This restranunt card is hard coded but this content of the card will not always be same so we are going to make it dyanmic using jsx*/
+const RestranuntCard=({
+    name,
+    cusines,
+    image,
+    rating,
+}
+)=>{
     return(
-    <div>
-        {title()}
-        <h1>HEllo react</h1>
-        <h2>Hello fn arrow comp</h2>
-    </div>
-);
+        <div className="card">
+            <img src={image}></img>
+            <h2>{name}</h2>
+            <h3>{cusines.join(",")}</h3>
+            <h4>{rating} stars</h4>
+        </div>
+    )
+}
+
+const AppLayout=()=>{
+    return(
+    <>
+        <HeaderComponent/>
+        <Body/>
+        <Footer/>
+    </>
+    );
 };
 //we can also use normal function instead of arrow functions
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeaderComponent2/>);
+root.render(<AppLayout/>);
 
  
