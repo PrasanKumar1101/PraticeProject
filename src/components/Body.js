@@ -56,9 +56,13 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {Filteredrestaurants?.map((restaurant, index) => (
-          <RestranuntCard key={index} {...restaurant.info} />
-        ))}
+        {Filteredrestaurants.length === 0 ? (
+          <h1>No results found</h1>
+        ) : (
+          Filteredrestaurants?.map((restaurant, index) => (
+            <RestranuntCard key={index} {...restaurant.info} />
+          ))
+        )}
       </div>
     </>
   );
