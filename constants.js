@@ -1,5 +1,5 @@
 export const logo =
-  "/home/prateek/react/assests/food-ordering-app-logo-with-points-fork-shapes-center_666184-195.avif";
+  "https://upload.wikimedia.org/wikipedia/commons/a/a0/Swiggy_Logo_2024.webp";
 export const restranuntList = [
   {
     name: "Burger King",

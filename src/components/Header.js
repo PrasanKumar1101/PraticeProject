@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { logo } from "../../constants";
 export const Title = () => (
   <a href="/">
@@ -5,6 +6,7 @@ export const Title = () => (
   </a>
 );
 const HeaderComponent = () => {
+  const [loggedIn, setloggedIn] = useState(true);
   return (
     <div className="header">
       <Title />
@@ -14,6 +16,23 @@ const HeaderComponent = () => {
           <li>About us</li>
           <li>Contact</li>
           <li>Cart</li>
+          {loggedIn ? (
+            <button
+              onClick={() => {
+                setloggedIn(false);
+              }}
+            >
+              Log In
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setloggedIn(true);
+              }}
+            >
+              Log Out
+            </button>
+          )}
         </ul>
       </div>
     </div>
