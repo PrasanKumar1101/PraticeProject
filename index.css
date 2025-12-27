@@ -174,6 +174,98 @@ body {
   color: #16a34a;
   margin-top: 6px;
 }
+/* Resturant Menu and menu Iteams self made css */
+.restaurant-menu {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Header section */
+.restaurant-header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.restaurant-image {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.restaurant-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.restaurant-name {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.restaurant-area {
+  font-size: 16px;
+  color: #666;
+}
+
+.restaurant-rating {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+/* Menu section */
+.menu-section {
+  border-top: 1px solid #eaeaea;
+  padding-top: 30px;
+}
+
+.menu-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Menu list */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each menu item */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-item-info {
+  max-width: 70%;
+}
+
+.menu-item-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.menu-item-price {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.menu-item-desc {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
 
 /* self added shimmer effect css */
 .shimmer-container {

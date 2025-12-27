@@ -1,0 +1,13 @@
+const About = () => {
+  return (
+    <div>
+      <h1>About Us page</h1>
+      <p>
+        This is the about us of our pratice project where we will learn about
+        routing of the pages
+      </p>
+    </div>
+  );
+};
+
+export default About;

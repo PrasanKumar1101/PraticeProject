@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { logo } from "../../constants";
+import { Link } from "react-router-dom";
 export const Title = () => (
   <a href="/">
     <img className="logo" alt="logo" src={logo}></img>
@@ -12,9 +13,15 @@ const HeaderComponent = () => {
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Contact</li>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/about">
+            <li>About us</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
           <li>Cart</li>
           {loggedIn ? (
             <button

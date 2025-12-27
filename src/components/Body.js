@@ -2,6 +2,8 @@ import { restranuntList } from "../../constants";
 import RestranuntCard from "../../RestrurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+
 function filterdata(searchtext, restaurants) {
   return restaurants.filter((restaurant) =>
     restaurant?.info?.name.toLowerCase()?.includes(searchtext.toLowerCase())
@@ -59,8 +61,14 @@ const Body = () => {
         {Filteredrestaurants.length === 0 ? (
           <h1>No results found</h1>
         ) : (
-          Filteredrestaurants?.map((restaurant, index) => (
-            <RestranuntCard key={index} {...restaurant.info} />
+          Filteredrestaurants?.map((restaurant) => (
+            <Link
+              key={restaurant.info.id}
+              to={`/ResturantMenu/${restaurant.info.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <RestranuntCard {...restaurant.info} />
+            </Link>
           ))
         )}
       </div>

@@ -18,19 +18,49 @@ import ReactDOM from "react-dom/client";
 import HeaderComponent, { Title } from "./src/components/Header";
 import Body from "./src/components/Body";
 import Footer from "./src/components/Footer";
-import RestranuntCard from "./RestrurantCard";
-
+import About from "./src/components/About";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./src/components/Error";
+import { Outlet } from "react-router-dom";
+import Contact from "./src/components/Contact";
+import ResturantMenu from "./src/components/ResturantMenu";
 /**This restranunt card is hard coded but this content of the card will not always be same so we are going to make it dyanmic using jsx*/
 
 const AppLayout = () => {
   return (
     <>
       <HeaderComponent />
-      <Body />
+      <Outlet />
       <Footer />
     </>
   );
 };
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/About",
+        element: <About />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
+      },
+      {
+        path: "/ResturantMenu/:id",
+        element: <ResturantMenu />,
+      },
+    ],
+  },
+]);
 //we can also use normal function instead of arrow functions
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
