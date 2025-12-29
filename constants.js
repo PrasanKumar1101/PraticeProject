@@ -1,3 +1,5 @@
+export const DATA_URL =
+  "https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING";
 export const logo =
   "https://upload.wikimedia.org/wikipedia/commons/a/a0/Swiggy_Logo_2024.webp";
 export const restranuntList = [

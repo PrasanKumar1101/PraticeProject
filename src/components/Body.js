@@ -3,7 +3,7 @@ import RestranuntCard from "../../RestrurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
+import useOnline from "../../utils/useOnline";
 function filterdata(searchtext, restaurants) {
   return restaurants.filter((restaurant) =>
     restaurant?.info?.name.toLowerCase()?.includes(searchtext.toLowerCase())
@@ -32,7 +32,8 @@ const Body = () => {
   //Conditional Rendering-Cond is applied with the return statement
   //if restraunt is  empty=> shimmer ui
   //if restraunt has data=?actual data ui
-
+  const isOnline = useOnline();
+  if (!isOnline) return <h1>Please check your internet connection</h1>;
   return Allrestaurants.length === 0 ? (
     <Shimmer />
   ) : (

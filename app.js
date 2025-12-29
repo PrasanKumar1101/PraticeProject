@@ -13,7 +13,7 @@
  * Zero Config
  * Tree Shaking-Removing unwanted code
  */
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent, { Title } from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -24,6 +24,10 @@ import Error from "./src/components/Error";
 import { Outlet } from "react-router-dom";
 import Contact from "./src/components/Contact";
 import ResturantMenu from "./src/components/ResturantMenu";
+import Cart from "./src/components/Cart";
+import { lazy } from "react";
+import Shimmer from "./src/components/Shimmer";
+ 
 /**This restranunt card is hard coded but this content of the card will not always be same so we are going to make it dyanmic using jsx*/
 
 const AppLayout = () => {
@@ -35,7 +39,7 @@ const AppLayout = () => {
     </>
   );
 };
-
+const Cart = lazy(() => import("./src/components/Cart"));
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -51,12 +55,20 @@ const appRouter = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/Contact",
+        path: "/",
         element: <Contact />,
       },
       {
         path: "/ResturantMenu/:id",
         element: <ResturantMenu />,
+      },
+      {
+        path: "/Cart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Cart />
+          </Suspense>
+        ),
       },
     ],
   },

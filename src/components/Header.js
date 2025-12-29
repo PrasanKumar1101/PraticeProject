@@ -22,7 +22,9 @@ const HeaderComponent = () => {
           <Link to="/contact">
             <li>Contact</li>
           </Link>
-          <li>Cart</li>
+          <Link to="/Cart">
+            <li>Cart</li>
+          </Link>
           {loggedIn ? (
             <button
               onClick={() => {
