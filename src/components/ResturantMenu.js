@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { addItem } from "../../utils/cartSlice";
+import { useDispatch } from "react-redux";
 function ResturantMenu() {
   //this is how we read dynamic URL using prarams
   const { id } = useParams();
@@ -12,6 +14,12 @@ function ResturantMenu() {
   useEffect(() => {
     getRestaurantMent();
   }, []);
+
+  //Action taking place when add item button is clicke on the ui
+  const dispatch = useDispatch();
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   async function getRestaurantMent() {
     const res = await fetch(
@@ -68,6 +76,15 @@ function ResturantMenu() {
           {menuItems.map((item) => (
             <li key={item.id} className="menu-item">
               <div className="menu-item-info">
+                <div>
+                  {/* add item button handle by store redux toolkit */}
+                  <button
+                    className="addItem-btn"
+                    onClick={() => addFoodItem(item)}
+                  >
+                    Add Iteam
+                  </button>
+                </div>
                 <h4 className="menu-item-name">{item.name}</h4>
                 <p className="menu-item-price">
                   ₹{(item.price || item.defaultPrice) / 100}

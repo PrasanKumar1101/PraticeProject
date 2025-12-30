@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { logo } from "../../constants";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import store from "../../utils/store";
 export const Title = () => (
   <a href="/">
     <img className="logo" alt="logo" src={logo}></img>
   </a>
 );
+
 const HeaderComponent = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   const [loggedIn, setloggedIn] = useState(true);
   return (
     <div className="header">
@@ -23,7 +28,7 @@ const HeaderComponent = () => {
             <li>Contact</li>
           </Link>
           <Link to="/Cart">
-            <li>Cart</li>
+            <li>Cart-{cartItems.length} Iteams</li>
           </Link>
           {loggedIn ? (
             <button

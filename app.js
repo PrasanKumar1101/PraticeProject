@@ -27,15 +27,19 @@ import ResturantMenu from "./src/components/ResturantMenu";
 import Cart from "./src/components/Cart";
 import { lazy } from "react";
 import Shimmer from "./src/components/Shimmer";
+import { Provider } from "react-redux";
+import store from "./utils/store";
  
 /**This restranunt card is hard coded but this content of the card will not always be same so we are going to make it dyanmic using jsx*/
 
 const AppLayout = () => {
   return (
     <>
+    <Provider store={store}>
       <HeaderComponent />
       <Outlet />
       <Footer />
+    </Provider>
     </>
   );
 };
@@ -76,3 +80,4 @@ const appRouter = createBrowserRouter([
 //we can also use normal function instead of arrow functions
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
+   
